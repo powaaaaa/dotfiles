@@ -1,4 +1,5 @@
 # macOS
-.DS_Store
+**/.DS_Store
 
-*.gitconfig.user*
+# git config
+home/git/.gitconfig
