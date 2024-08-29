@@ -15,4 +15,3 @@ require('nvim-treesitter').setup({
     enable = true,
   },
 })
-

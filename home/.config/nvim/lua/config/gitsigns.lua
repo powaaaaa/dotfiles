@@ -47,4 +47,3 @@ gitsigns.setup({
   },
 }
 )
-

@@ -3,4 +3,3 @@
 
 export SHELDON_CONFIG_FILE=$HOME/.sheldon.toml
 eval "$(sheldon source)"
-

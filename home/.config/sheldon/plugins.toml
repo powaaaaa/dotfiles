@@ -39,4 +39,3 @@ apply = ["source"]
 [plugins.dotfiles-defer]
 local = "~/dotfiles/zsh"
 use = ["{!sync,*}.zsh"]
-

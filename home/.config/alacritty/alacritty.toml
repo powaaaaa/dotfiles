@@ -56,4 +56,3 @@ lines = 60
 bindings = [
   { key = "Return", mods = "Command", action = "ToggleSimpleFullscreen" },
 ]
-

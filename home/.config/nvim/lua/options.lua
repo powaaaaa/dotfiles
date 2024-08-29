@@ -2,7 +2,7 @@
 vim.opt.fileencoding = "utf-8" -- encoding
 vim.opt.swapfile = false -- no swap file
 vim.opt.helplang = "ja" -- help fileの言語
-vim.opt.hidden = true -- buffe切替時ファイル未保存で実行			
+vim.opt.hidden = true -- buffe切替時ファイル未保存で実行
 
 -- カーソルと表示
 vim.opt.cursorline = true -- カーソルがある行を強調
@@ -59,4 +59,3 @@ vim.api.nvim_create_autocmd("VimEnter", {
     vim.cmd("Neotree")
   end
 })
-

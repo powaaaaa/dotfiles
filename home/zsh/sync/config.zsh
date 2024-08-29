@@ -25,4 +25,3 @@ tgz() {
     env COPYFILE_DISABLE=1 tar zcvf "$1" --exclude=".DS_Store" "${@:2}"
   fi
 }
-

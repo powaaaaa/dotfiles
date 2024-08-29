@@ -1,3 +1,2 @@
 require('nvim-markdown').setup({
 })
-

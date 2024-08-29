@@ -110,4 +110,3 @@ require('render-markdown').setup({
         quote = '@markup.quote',
     },
 })
-
