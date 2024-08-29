@@ -1,0 +1,7 @@
+[tools]
+bun = "latest"
+ruby = "latest"
+python = "3.11.4"
+go = "latest"
+java = "corretto-21"
+rust = "latest"
