@@ -30,6 +30,8 @@ export DOTNET_ROOT="/usr/local/share/dotnet/dotnet"
 export PATH=$PATH:$DOtNET_ROOT
 
 #########################################################
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # starship
 eval "$(starship init zsh)"
