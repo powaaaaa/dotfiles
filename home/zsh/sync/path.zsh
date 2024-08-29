@@ -1,3 +1,4 @@
+#!/bin/bash
 # homebrew
 #  typeset -Ug : deal with path as set of PATH
 #  N-/         : add path if not exist
@@ -34,7 +35,5 @@ export PATH=$PATH:$DOtNET_ROOT
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # starship
+# export STARSHIP_CONFIG=~/dotfiles/home/config/starship.toml
 eval "$(starship init zsh)"
-
-# sheldon
-eval "$(sheldon source)"

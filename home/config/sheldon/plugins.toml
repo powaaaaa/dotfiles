@@ -14,12 +14,12 @@ shell = "zsh"
 
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
-
-# デフォルトを遅延読み込みにする
-apply = ["defer"]
+apply = ['source']
 
 [templates]
-defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}""
+defer = '''
+{% for file in files %}zsh-defer source "{{ file }}"
+{% endfor %}'''
 
 # [plugins.zsh-autosuggestions]
 # github = "zsh-users/zsh-autosuggestions"
@@ -31,11 +31,12 @@ defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}""
 # [plugins.syntax-highlighting]
 # github = "zdharma/fast-syntax-highlighting"
 
-[plugins.dotfiles-sync]
-local = "~/dotfiles/zsh"
-use = ["sync/*.zsh"]
-apply = ["source"]
-
 [plugins.dotfiles-defer]
-local = "~/dotfiles/zsh"
+local = "~/dotfiles/home/zsh"
 use = ["{!sync,*}.zsh"]
+apply = ["defer"]
+
+[plugins.dotfiles-sync]
+local = "~/dotfiles/home/zsh/sync"
+use = ["*.zsh"]
+apply = ["source"]
