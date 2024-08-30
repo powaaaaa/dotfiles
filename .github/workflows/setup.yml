@@ -20,4 +20,4 @@ jobs:
 
       - name: Setup Dotfiles
         run: |
-          /bin/zsh setup.sh
+          /bin/zsh dotfiles/scripts/setup.sh
