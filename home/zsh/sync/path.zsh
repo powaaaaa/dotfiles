@@ -1,4 +1,3 @@
-#!/bin/bash
 # homebrew
 #  typeset -Ug : deal with path as set of PATH
 #  N-/         : add path if not exist

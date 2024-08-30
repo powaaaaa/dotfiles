@@ -1,4 +1,3 @@
-#!/bin/bash
 # 新しいコマンドを即認識させる
 zstyle ":completion:*:commands" rehash 1
 
