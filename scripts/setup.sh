@@ -1,6 +1,8 @@
 #!/bin/bash
+echo "setupを開始します"
+
 # dotfilesのシンボリックリンクを作成する
-# source ~/dotfiles/link.sh
+source $HOME/dotfiles/scripts/link.sh
 
 # homebrewがインストールされていない場合はインストール
 if ! type brew &> /dev/null ; then
@@ -10,12 +12,13 @@ else
     echo "homebreのinstallはスキップされました."
 fi
 
-echo "Brewfileのパッケージをinstallします..."
-brew bundle --global
+echo "Brewfile記載のパッケージをinstallします..."
+BREWFILE_PATH="$HOME/dotfiles/home/Brewfile"
+brew bundle --file="$BREWFILE_PATH"
 echo\
 
 echo "セットアップが完了しました"
-echo "Next..."
-echo "1. .envを追加し、環境変数を設定してください。"
-echo "2. git/user.confを追加し、ユーザー情報を設定してください。"
-echo "3. ターミナルを再起動してください。"
+echo "------------------------------------"
+echo "Next:"
+echo "  gitconfigのuserを設定してください"
+echo "  terminalを再起動してください"

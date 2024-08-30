@@ -1,14 +1,65 @@
 #!/bin/bash
 
+# dotfilesディレクトリのパス
 DOTFILES_DIR=$HOME/dotfiles/home
-echo "シンボリックを作成します..."
 
-for dotfile in "${DOTFILES_DIR}"/.??* ; do
-    [[ "$dotfile" == "${DOTFILES_DIR}/.git" ]] && continue
-    [[ "$dotfile" == "${DOTFILES_DIR}/.github" ]] && continue
-    [[ "$dotfile" == "${DOTFILES_DIR}/.DS_Store" ]] && continue
+# ホームディレクトリ
+HOME_DIR=$HOME
+# configディレクトリ
+CONFIG_DIR=$HOME/.config
 
-    ln -fnsv "$dotfile" "$HOME"
+# シンボリックリンク作成のための関数
+create_symlink() {
+    local src="$1"
+    local dest="$2"
+
+    if [ -L "$dest" ]; then
+        echo "$dest はすでに存在します. スキップしました."
+        # read -rp "$dest はすでに存在します. 上書きしますか? (y/N): " response
+        # if [ "$response" != "y" ] && [ "$response" != "Y" ]; then
+            #echo "スキップしました: $dest"
+            return
+        # fi
+        rm -rf "$dest"
+    fi
+
+    ln -s "$src" "$dest"
+    echo
+    echo "シンボリックリンクを作成しました: $src -> $dest"
+}
+echo "------------------------------------"
+echo "シンボリックリンクの作成を開始します..."
+echo
+
+# home 配下のファイルとディレクトリのシンボリックリンクを作成
+files_to_link=(
+    ".latexmkrc"
+    ".skhdrc"
+    ".yabairc"
+    ".zshrc"
+    ".hammerspoon"
+    "git/.gitconfig"
+)
+
+for file in "${files_to_link[@]}"; do
+    create_symlink "$DOTFILES_DIR/$file" "$HOME_DIR/$(basename "$file")"
 done
 
-echo "シンボリックリンクを作成しました."
+# .config 配下のファイルとディレクトリのシンボリックリンクを作成
+config_dirs_to_link=(
+    "alacritty"
+    "mise"
+    "nvim"
+    "sheldon"
+    "wezterm"
+    "zellij"
+    "starship.toml"
+)
+
+for dir in "${config_dirs_to_link[@]}"; do
+    create_symlink "$DOTFILES_DIR/.config/$dir" "$CONFIG_DIR/$(basename "$dir")"
+done
+
+echo
+echo "シンボリックリンクの作成が完了しました."
+echo "------------------------------------"
