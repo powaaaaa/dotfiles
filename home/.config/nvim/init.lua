@@ -1,33 +1,19 @@
--- pluginを管理する関数
--- require("lazy").setup(plugins, {
--- performance = {
---	rtp = {
---            disabled_plugins = {
---		    "netrw",
---		    "netrwPlugin",
---		    "netrwSettings",
---		    "netrwFileHandlers",
---	    },
---	},
---   },
---}
+-- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution
+-- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.
+local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
+  -- stylua: ignore
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
+end
+vim.opt.rtp:prepend(lazypath)
 
-require 'options'
-require 'lazy-nvim'
+-- validate that lazy is available
+if not pcall(require, "lazy") then
+  -- stylua: ignore
+  vim.api.nvim_echo({ { ("Unable to load lazy from: %s\n"):format(lazypath), "ErrorMsg" }, { "Press any key to exit...", "MoreMsg" } }, true, {})
+  vim.fn.getchar()
+  vim.cmd.quit()
+end
 
--- color schemeを設定
--- vim.cmd([[colorscheme onenord]])
--- colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
-require("catppuccin").setup({
-    flavour = "mocha",
-    color_overrides = {
-        mocha = {
-            base = "#12121a",
-            mantle = "#12121a",
-            crust = "#12121a",
-        },
-    },
-    transparent_background = true,
-})
-vim.cmd.colorscheme("catppuccin-mocha")
-vim.cmd("highlight TelescopeSelection cterm=bold gui=bold guifg=#a6e3a1 guibg=#181825")
+require "lazy_setup"
+require "polish"
