@@ -22,12 +22,18 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 # gcloud
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+# source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+# source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
 # dotnet
 export DOTNET_ROOT="/usr/local/share/dotnet/dotnet"
 export PATH=$PATH:$DOtNET_ROOT
+
+# progate
+export PATH=$HOME/.progate/bin:$PATH
+
+# spaceship
+source /opt/homebrew/opt/spaceship/spaceship.zsh
 
 #########################################################
 # homebrew
@@ -35,4 +41,4 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # starship
 # export STARSHIP_CONFIG=~/dotfiles/home/config/starship.toml
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
