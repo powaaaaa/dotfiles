@@ -9,7 +9,7 @@ local config = wezterm.config_builder()
 config.automatically_reload_config = true
 
 -- font
--- config.font = wezterm.font("JetBrains Mono", { weight = "bold" })
+config.font = wezterm.font("UDEV Gothic 35NFLG")
 
 -- font size
 config.font_size = 12.0
