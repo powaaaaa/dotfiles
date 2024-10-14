@@ -27,8 +27,8 @@ config.macos_window_background_blur = 5
 config.color_scheme = "Rosé Pine Moon (Gogh)"
 
 -- window初期サイズ
-config.initial_cols = 268
-config.initial_rows = 71
+config.initial_cols = 265
+config.initial_rows = 80
 
 --------------------------------
 -- tab
