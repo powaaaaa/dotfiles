@@ -96,7 +96,7 @@ return {
 		-- paste
 		{ key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
 		-- copy mode
-		{ key = "c", mods = "CTRL", action = act.ActivateCopyMode },
+		{ key = "c", mods = "CTRL|SHIFT", action = act.ActivateCopyMode },
 		-- quickSelectModeを起動する
 		{ key = "phys:Space", mods = "SHIFT|CTRL", action = act.QuickSelect },
 
