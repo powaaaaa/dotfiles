@@ -21,15 +21,15 @@ defer = '''
 {% for file in files %}zsh-defer source "{{ file }}"
 {% endfor %}'''
 
-# [plugins.zsh-autosuggestions]
-# github = "zsh-users/zsh-autosuggestions"
-# use = ["{{ name }}.zsh"]
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ["{{ name }}.zsh"]
 
-# [plugins.zsh-completions]
-# github = "zsh-users/zsh-completions"
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
 
-# [plugins.syntax-highlighting]
-# github = "zdharma/fast-syntax-highlighting"
+[plugins.syntax-highlighting]
+github = "zdharma/fast-syntax-highlighting"
 
 [plugins.dotfiles-defer]
 local = "~/dotfiles/home/zsh"

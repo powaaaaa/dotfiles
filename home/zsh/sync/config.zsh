@@ -25,3 +25,7 @@ tgz() {
     env COPYFILE_DISABLE=1 tar zcvf "$1" --exclude=".DS_Store" "${@:2}"
   fi
 }
+
+############## git ################
+# gitの自動補完
+autoload -Uz compinit && compinit
